@@ -1,4 +1,4 @@
-from turtle import Screen, Turtle
+from turtle import Screen
 from snake import Snake
 import time
 
@@ -9,29 +9,23 @@ screen.title("My snake game")
 screen.tracer(0)
 
 snake = Snake()
-snake.create_snake()
+
+
+screen.listen()
+screen.onkey(snake.up(), "up")
+screen.onkey(snake.down(), "down")
+screen.onkey(snake.left(), "left")
+screen.onkey(snake.right(), "right")
 
 screen.update()
 
 
 game_is_on = True
 while game_is_on:
-    time.sleep(1)
     screen.update()
+    time.sleep(0.1)
 
     snake.snake_move()
-    
-    
-
-
-
-
-
-
-
-
-
-
 
 
 screen.exitonclick()
